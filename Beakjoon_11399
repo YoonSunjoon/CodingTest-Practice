@@ -1,0 +1,34 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio;
+	cin.tie(0);
+	cout.tie(0);
+	int member = 0;
+	vector<int>  v;
+
+	cin >> member;
+	for (int i = 0; i < member; i++)
+	{
+		int a;
+		cin >> a;
+		v.push_back(a);
+	}
+	sort(v.begin(), v.end());
+		
+	int sum = 0; 
+	int result = 0;
+
+	for (int i = 0; i < member; i++)
+	{
+		sum += v[i];
+		result += sum;
+	}
+	cout << result << endl;
+	return 0;
+}
