@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<functional>
+using namespace std;
+
+int main()
+{
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+
+
+	int N = 0;
+	int K = 0;
+	int result = 0;
+	vector<int> won;
+
+	cin >> N >> K;
+	for (int i = 0; i < N; i++)
+	{
+		int money = 0;
+		cin >> money;
+		won.push_back(money);
+	}
+	sort(won.begin(), won.end(), greater<int>());
+
+	for (int i = 0; i < N; i++)
+	{
+		
+		if (K < won[i])
+			continue;
+		if (K == 0)
+			break;
+		result =result + ( K / won[i]);
+		K = K-( won[i] * (K / won[i]));
+	}
+
+	cout << result << endl;
+
+
+
+	
+
+	return 0;
+}
